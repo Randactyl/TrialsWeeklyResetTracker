@@ -65,8 +65,8 @@ end
 --Assaulting the Citadel
 --  - [Warrior's Dulled Coffer] is available!
 --Into the Maw
---  - [Mage's Ignorant Coffer] is available!
---  - [Mage's Knowledgeable Coffer] is available in 1d 10h 17m 36s.
+--  - [Dro-m'Athra's Burnished Coffer] is available!
+--  - [Dro-m'Athra's Shining Coffer] is available in 1d 10h 17m 36s.
 local function getCooldownInfo()
     --for each quest saved to this character's cooldown data
     for questId, lootTable in pairs(TrialsWeeklyResetTrackerData[TWRT.characterId]) do
@@ -115,8 +115,8 @@ local function updateCooldownInfo()
         },
         --Maw of Lorkaj, "Into the Maw"
         [5352] = {
-            [94089] = "", --Mage's Ignorant Coffer
-            [94090] = "", --Mage's Knowledgeable Coffer
+            [94089] = "", --Dro-m'Athra's Burnished Coffer
+            [94090] = "", --Dro-m'Athra's Shining Coffer
         },
     }
 
