@@ -35,6 +35,15 @@ TWRT.lootIds = {
 --saved data
 TWRT.data = nil
 
+--control data
+local debug = false
+
+local function toggleDebug()
+    debug = not debug
+    d("Debug set to "..tostring(debug))
+end
+SLASH_COMMANDS["/twrtdebug"] = toggleDebug
+
 --turn a number representing seconds into a human readable string
 --ex: 123456 == 1d 10h 17m 36s
 local function secondsToCooldownString(seconds)
@@ -165,6 +174,9 @@ EVENT_MANAGER:RegisterForEvent("TWRT_LOOT_RECEIVED", EVENT_LOOT_RECEIVED, lootRe
 
 --triggered on quest complete or abandon
 local function questRemoved(eventCode, isCompleted, journalIndex, questName, zoneIndex, poiIndex, questId)
+    --for getting a new trial quest
+    if debug then d("questId: "..questId) end
+
     --only continue if quest is complete
     if not isCompleted then return end
 
@@ -175,7 +187,7 @@ local function questRemoved(eventCode, isCompleted, journalIndex, questName, zon
         TWRT.lastQuestId = questId
     end
 
-    --this is probably unnecessary, but in the even the loot is received before the quest is "completed" we'll call here as well
+    --this is probably unnecessary, but in the event the loot is received before the quest is "completed" we'll call here as well
     updateCooldownInfo()
 end
 EVENT_MANAGER:RegisterForEvent("TWRT_QUEST_REMOVED", EVENT_QUEST_REMOVED, questRemoved)
