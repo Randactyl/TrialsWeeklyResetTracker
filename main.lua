@@ -18,6 +18,7 @@ TWRT.questIds = {
     [5102] = "",
     [5171] = "",
     [5352] = "",
+    [5894] = "",
 }
 TWRT.lootIds = {
     [87703] = "",
@@ -127,6 +128,11 @@ local function updateCooldownInfo()
             [94089] = "", --Dro-m'Athra's Burnished Coffer
             [94090] = "", --Dro-m'Athra's Shining Coffer
         },
+        --Halls of Fabrication, "Forging the Future"
+        [5894] = {
+            [126130] = "", --Fabricant's Burnished Coffer
+            [126131] = "", --Fabricant's Shining Coffer
+        }
     }
 
     --only continue if both quest and loot ids are initialized
